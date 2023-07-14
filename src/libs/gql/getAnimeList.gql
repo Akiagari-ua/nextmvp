@@ -1,0 +1,9 @@
+query GetAnimeList($type: MediaType) {
+  MediaList(type: $type) {
+    media {
+      coverImage {
+        color
+      }
+    }
+  }
+}
