@@ -1,7 +1,6 @@
 import { PluginFunction } from '@graphql-codegen/plugin-helpers';
 import { upperFirst, camelCase } from 'lodash'
 import { print } from 'graphql';
-import gql from 'graphql-tag';
 import { format } from 'prettier';
 
 export const plugin: PluginFunction = (schema, documents, config) => {

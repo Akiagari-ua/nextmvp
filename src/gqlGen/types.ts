@@ -4667,16 +4667,9 @@ export type YearStats = {
 };
 
 export type GetAnimeListQueryVariables = Exact<{
-  type?: InputMaybe<MediaType>;
-}>;
-
-
-export type GetAnimeListQuery = { __typename?: 'Query', MediaList?: { __typename?: 'MediaList', media?: { __typename?: 'Media', coverImage?: { __typename?: 'MediaCoverImage', color?: string | null } | null } | null } | null };
-
-export type GetPageQueryVariables = Exact<{
   page?: InputMaybe<Scalars['Int']['input']>;
   perPage?: InputMaybe<Scalars['Int']['input']>;
 }>;
 
 
-export type GetPageQuery = { __typename?: 'Query', Page?: { __typename?: 'Page', characters?: Array<{ __typename?: 'Character', name?: { __typename?: 'CharacterName', full?: string | null } | null } | null> | null } | null };
+export type GetAnimeListQuery = { __typename?: 'Query', Page?: { __typename?: 'Page', media?: Array<{ __typename?: 'Media', genres?: Array<string | null> | null, coverImage?: { __typename?: 'MediaCoverImage', medium?: string | null } | null, title?: { __typename?: 'MediaTitle', english?: string | null } | null } | null> | null } | null };

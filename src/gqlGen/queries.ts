@@ -1,9 +1,4 @@
-import {
-  GetAnimeListQuery,
-  GetAnimeListQueryVariables,
-  GetPageQuery,
-  GetPageQueryVariables,
-} from "./types";
+import { GetAnimeListQuery, GetAnimeListQueryVariables } from "./types";
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import gql from "graphql-tag";
 
@@ -16,35 +11,15 @@ export async function getAnimeList({
 }): Promise<GetAnimeListQuery> {
   const { data } = await client.query({
     query: gql`
-      query GetAnimeList($type: MediaType) {
-        MediaList(type: $type) {
+      query GetAnimeList($page: Int, $perPage: Int) {
+        Page(page: $page, perPage: $perPage) {
           media {
             coverImage {
-              color
+              medium
             }
-          }
-        }
-      }
-    `,
-    variables,
-  });
-  return data;
-}
-
-export async function getPage({
-  variables,
-  client,
-}: {
-  variables: GetPageQueryVariables;
-  client: ApolloClient<NormalizedCacheObject>;
-}): Promise<GetPageQuery> {
-  const { data } = await client.query({
-    query: gql`
-      query getPage($page: Int, $perPage: Int) {
-        Page(page: $page, perPage: $perPage) {
-          characters {
-            name {
-              full
+            genres
+            title {
+              english
             }
           }
         }

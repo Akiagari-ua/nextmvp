@@ -1,8 +1,13 @@
-query GetAnimeList($type: MediaType) {
-  MediaList(type: $type) {
+query GetAnimeList($page: Int, $perPage: Int) {
+  Page(page: $page, perPage: $perPage) {
     media {
       coverImage {
-        color
+        medium
+      }
+      genres
+
+      title {
+        english
       }
     }
   }
