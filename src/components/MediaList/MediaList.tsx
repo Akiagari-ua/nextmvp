@@ -4,12 +4,19 @@ import getClient from "@/libs/apollo/getClient";
 import Image from "next/image";
 import Link from "next/link";
 //@ts-ignore
-const MediaList: FC = async () => {
+const MediaList: FC<{ perPage?: number }> = async ({ perPage }) => {
+  const isSsr = typeof window === "undefined";
+
+  console.log({ perPage });
+
+  if (isSsr) {
+    console.log("SSSSSRRRRRR!!!!!");
+  }
   const client = getClient();
 
   const { Page } = await getAnimeList({
     client,
-    variables: { page: 1, perPage: 30 },
+    variables: { page: 1, perPage: perPage || 30 },
   });
 
   return (
