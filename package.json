@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "gql:gen": "tsc ./generator.ts &&  graphql-codegen"
+    "gen:gql": "tsc ./generator.ts &&  graphql-codegen"
   },
   "dependencies": {
     "@apollo/client": "^3.7.17",
@@ -24,9 +24,11 @@
     "next": "13.4.9",
     "postcss": "8.4.26",
     "react": "18.2.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.3",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "universal-cookie": "^4.0.4"
   },
   "main": "index.js",
   "repository": "git@github.com:Akiagari-ua/nextmvp.git",

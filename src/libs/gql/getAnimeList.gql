@@ -1,6 +1,7 @@
 query GetAnimeList($page: Int, $perPage: Int) {
   Page(page: $page, perPage: $perPage) {
     media {
+      id
       coverImage {
         medium
       }

@@ -1,0 +1,7 @@
+query GetMediaById($mediaId: Int) {
+  Media(id: $mediaId) {
+    bannerImage
+    description
+    id
+  }
+}

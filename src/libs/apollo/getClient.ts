@@ -1,14 +1,19 @@
 import { cache } from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+const getter = () => new ApolloClient({
+    uri: process.env.NEXT_PUBLIC_API_URL,
+    cache: new InMemoryCache(),
+});
 
 
-const getClient = () => {
-    const getter = () => new ApolloClient({
-        uri: process.env.NEXT_PUBLIC_API_URL,
-        cache: new InMemoryCache(),
-    });
 
-    return cache(getter)()
+function registerApolloClient(makeClient: () => ApolloClient<any>) {
+    const getClient = cache(makeClient);
+    return {
+        getClient,
+    };
 }
+
+const { getClient } = registerApolloClient(getter)
 
 export default getClient

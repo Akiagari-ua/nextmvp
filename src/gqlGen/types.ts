@@ -4672,4 +4672,16 @@ export type GetAnimeListQueryVariables = Exact<{
 }>;
 
 
-export type GetAnimeListQuery = { __typename?: 'Query', Page?: { __typename?: 'Page', media?: Array<{ __typename?: 'Media', genres?: Array<string | null> | null, coverImage?: { __typename?: 'MediaCoverImage', medium?: string | null } | null, title?: { __typename?: 'MediaTitle', english?: string | null } | null } | null> | null } | null };
+export type GetAnimeListQuery = { __typename?: 'Query', Page?: { __typename?: 'Page', media?: Array<{ __typename?: 'Media', id: number, genres?: Array<string | null> | null, coverImage?: { __typename?: 'MediaCoverImage', medium?: string | null } | null, title?: { __typename?: 'MediaTitle', english?: string | null } | null } | null> | null } | null };
+
+export type GetGenreCollectionQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetGenreCollectionQuery = { __typename?: 'Query', GenreCollection?: Array<string | null> | null };
+
+export type GetMediaByIdQueryVariables = Exact<{
+  mediaId?: InputMaybe<Scalars['Int']['input']>;
+}>;
+
+
+export type GetMediaByIdQuery = { __typename?: 'Query', Media?: { __typename?: 'Media', bannerImage?: string | null, description?: string | null, id: number } | null };
