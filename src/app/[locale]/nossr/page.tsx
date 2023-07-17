@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+
 export const revalidate = 10;
 
 const NoSsrMediaList = dynamic(() => import("@/components/MediaList"), {
