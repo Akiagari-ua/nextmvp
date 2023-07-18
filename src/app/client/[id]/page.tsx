@@ -13,9 +13,7 @@ const Wrapper: FC<PropsWithChildren> = ({ children }) => {
 };
 
 const Index = ({ params }: Props) => {
-  console.log({ params });
-
-  console.log({ megaSssr: typeof window === "undefined" });
+  const isSsr = typeof window === "undefined";
 
   return (
     <Wrapper>
